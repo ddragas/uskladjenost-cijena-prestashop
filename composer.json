@@ -1,0 +1,8 @@
+{
+    "name": "infomedia/uskladjenost-cijena-prestashop",
+    "description": "PrestaShop 8 module for Usklađenost cijena (anchor prices and public price lists under NN 101/2026). Dev dependencies only; the module needs no Composer at runtime.",
+    "license": "MIT",
+    "require": { "php": ">=7.4" },
+    "require-dev": { "phpunit/phpunit": "^9.6 || ^10.5 || ^11.0" },
+    "scripts": { "test": "phpunit" }
+}
