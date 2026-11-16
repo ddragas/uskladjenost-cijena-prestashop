@@ -80,8 +80,11 @@ final class MapperTest extends TestCase
 
     public function test_the_label_comes_only_when_an_anchor_is_owed_and_known(): void
     {
-        $this->assertSame('Cijena na dan 10. 9. 2026.: 12,50 €', UcMapper::label(['anchor_display' => ['required' => true, 'label' => 'Cijena na dan 10. 9. 2026.: 12,50 €']]));
+        $this->assertSame('Bazna cijena na dan 10. 9. 2026.: 12,50 €', UcMapper::label(['anchor_display' => ['required' => true, 'label' => 'Bazna cijena na dan 10. 9. 2026.: 12,50 €']]));
         $this->assertSame('x', UcMapper::label(['data' => ['anchor_display' => ['required' => true, 'label' => 'x']]]));
+        $this->assertSame('Bazna cijena na dan 10. 9. 2026.: 12,50 €', UcMapper::label(['data' => ['base_price' => ['required' => true, 'label' => 'Bazna cijena na dan 10. 9. 2026.: 12,50 €']]]));
+        $this->assertSame('new', UcMapper::label(['base_price' => ['required' => true, 'label' => 'new'], 'anchor_display' => ['required' => true, 'label' => 'old']]));
+        $this->assertNull(UcMapper::label(['base_price' => ['required' => false, 'label' => 'x']]));
         $this->assertNull(UcMapper::label(['anchor_display' => ['required' => false, 'label' => 'x']]));
         $this->assertNull(UcMapper::label(['anchor_display' => ['required' => true, 'label' => null, 'needs_review' => true]]));
         $this->assertNull(UcMapper::label([]));

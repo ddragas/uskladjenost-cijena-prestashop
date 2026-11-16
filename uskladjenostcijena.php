@@ -1,8 +1,8 @@
 <?php
 /**
- * Usklađenost cijena for PrestaShop 8: anchor prices and the public price
- * list under NN 101/2026. Products and prices go to uskladjenost-cijena.com
- * on every save; the product page prints the anchor price under the price.
+ * Usklađenost cijena for PrestaShop 8: base prices and the public price
+ * list under NN 132/2026. Products and prices go to uskladjenost-cijena.com
+ * on every save; the product page prints the base price under the price.
  *
  * @author  Info Media d.o.o.
  * @license MIT
@@ -57,7 +57,7 @@ class Uskladjenostcijena extends Module
         parent::__construct();
 
         $this->displayName = 'Usklađenost cijena';
-        $this->description = 'Sidrene cijene i javni cjenik po NN 101/2026: artikli i cijene idu u Usklađenost cijena, a uz cijenu proizvoda ispisuje se propisana sidrena cijena.';
+        $this->description = 'Bazne cijene i javni cjenik po NN 132/2026: artikli i cijene idu u Usklađenost cijena, a uz cijenu proizvoda ispisuje se propisana bazna cijena.';
         $this->confirmUninstall = 'Ukloniti modul? Podaci u servisu Usklađenost cijena ostaju.';
     }
 
@@ -171,7 +171,7 @@ class Uskladjenostcijena extends Module
                 ['type' => 'text', 'label' => 'Šifra kanala (webshop)', 'name' => 'UC_CHANNEL_CODE', 'desc' => 'Kod prodajnog kanala tipa webshop, npr. WEB. Cijene idu na taj kanal i javni cjenik se gradi za njega.'],
                 ['type' => 'text', 'label' => 'Adresa servisa', 'name' => 'UC_BASE_URL', 'desc' => 'Ostavite kako jest; mijenja se samo za testni poslužitelj.'],
                 ['label' => 'Automatska sinkronizacija', 'desc' => 'Svaka spremljena promjena proizvoda, kombinacije, posebne cijene ili zalihe odmah ide u Usklađenost cijena.'] + $switch('UC_AUTO_SYNC'),
-                ['label' => 'Sidrena cijena uz cijenu', 'desc' => 'Ispod cijene ispiši propisani tekst (npr. „Cijena na dan 10. 9. 2026.: 12,50 €”).'] + $switch('UC_SHOW_LABEL'),
+                ['label' => 'Bazna cijena uz cijenu', 'desc' => 'Ispod cijene ispiši propisani tekst (npr. „Bazna cijena na dan 10. 9. 2026.: 12,50 €”).'] + $switch('UC_SHOW_LABEL'),
             ],
             'submit' => ['title' => 'Spremi'],
         ]];

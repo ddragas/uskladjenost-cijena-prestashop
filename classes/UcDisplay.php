@@ -1,6 +1,6 @@
 <?php
 /**
- * The anchor price under the price, from the API's decision for the
+ * The base price under the price, from the API's decision for the
  * product on the webshop channel, cached six hours and forgotten on
  * every sync of that product.
  */

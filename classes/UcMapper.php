@@ -121,7 +121,8 @@ final class UcMapper
      */
     public static function label(array $decision): ?string
     {
-        $display = $decision['anchor_display'] ?? ($decision['data']['anchor_display'] ?? null);
+        // `base_price` since NN 132/2026; `anchor_display` is the same answer under the API's first name.
+        $display = $decision['base_price'] ?? ($decision['data']['base_price'] ?? ($decision['anchor_display'] ?? ($decision['data']['anchor_display'] ?? null)));
         if (! is_array($display) || empty($display['required'])) {
             return null;
         }

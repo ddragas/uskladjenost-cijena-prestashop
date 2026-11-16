@@ -1,11 +1,11 @@
 # Usklađenost cijena za PrestaShop
 
-PrestaShop 8 (i 1.7.6+) modul `uskladjenostcijena` koji povezuje trgovinu sa servisom [Usklađenost cijena](https://uskladjenost-cijena.com): sidrene cijene i javni strojno čitljiv cjenik po NN 101/2026.
+PrestaShop 8 (i 1.7.6+) modul `uskladjenostcijena` koji povezuje trgovinu sa servisom [Usklađenost cijena](https://uskladjenost-cijena.com): bazne cijene i javni strojno čitljiv cjenik po NN 132/2026.
 
 Što radi:
 
 - **Sinkronizacija na spremanje.** Svaka promjena proizvoda, kombinacije, posebne cijene ili zalihe (hookovi `actionProductAdd/Update/Delete`, `actionObjectCombination*After`, `actionObjectSpecificPrice*After`, `actionUpdateQuantity`) odmah ide u servis kroz `PUT /items/{id}` i `POST /prices/by-external/{id}`. Proizvod je artikl s vanjskim id-om `12`; svaka kombinacija je zaseban artikl `12-34` s nazivom „Proizvod – Veličina - L, Boja - crna”. Cijena je s PDV-om; posebna cijena (sniženje) ispod redovne je akcija: redovna ostaje `price`, plaćena je snižena, s datumom isteka ako ga posebna cijena ima. Virtualni proizvodi su usluge. Obrisan proizvod ili kombinacija deaktivira se u servisu.
-- **Sidrena cijena uz cijenu.** Hook `displayProductPriceBlock` (tip `after_price`) ispisuje tekst koji servis izračuna (`GET /compliance/by-external/{id}` na kanalu webshopa), za proizvod ili odabranu kombinaciju. Odgovor se kešira 6 sati u datotečnom kešu (`var/cache/.../uskladjenostcijena/`) i briše kod svake sinkronizacije tog artikla.
+- **Bazna cijena uz cijenu.** Hook `displayProductPriceBlock` (tip `after_price`) ispisuje tekst koji servis izračuna (`GET /compliance/by-external/{id}` na kanalu webshopa), za proizvod ili odabranu kombinaciju. Odgovor se kešira 6 sati u datotečnom kešu (`var/cache/.../uskladjenostcijena/`) i briše kod svake sinkronizacije tog artikla.
 - **Cijeli katalog na klik** (Moduli → Usklađenost cijena → Konfiguriraj → *Pošalji sve proizvode i cijene*): serije od 200 artikala kroz `POST /items/bulk` i `POST /price-events/bulk`.
 
 Bez Composera na produkciji: modul koristi curl. Zahtijeva PHP 7.4+.
