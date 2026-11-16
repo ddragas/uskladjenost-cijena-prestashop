@@ -2,7 +2,7 @@
 <module>
     <name>uskladjenostcijena</name>
     <displayName><![CDATA[Usklađenost cijena]]></displayName>
-    <version><![CDATA[1.0.0]]></version>
+    <version><![CDATA[1.1.0]]></version>
     <description><![CDATA[Sidrene cijene i javni cjenik po NN 101/2026: artikli i cijene idu u Usklađenost cijena, a uz cijenu proizvoda ispisuje se propisana sidrena cijena.]]></description>
     <author><![CDATA[Info Media d.o.o.]]></author>
     <tab><![CDATA[pricing_promotion]]></tab>

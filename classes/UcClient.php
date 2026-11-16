@@ -2,7 +2,7 @@
 /** The API over curl; no Composer needed at runtime. */
 final class UcClient
 {
-    public const VERSION = '1.0.0';
+    public const VERSION = '1.1.0';
 
     /** @var string */
     private $token;
